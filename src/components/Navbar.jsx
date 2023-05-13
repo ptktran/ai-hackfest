@@ -2,7 +2,7 @@ import github from '../assets/graphics/help-icon.svg'
 
 function Navbar() {
   return(
-    <div class="bg-dark-gray p-2 absolute w-screen flex items-center justify-between">
+    <div class="bg-dark-gray h-auto p-2 flex items-center justify-between absolute w-full">
       <a href="/">
         <h1 class="font-logo text-4xl mx-5">
           <span class="text-green">Melody</span><span class="text-white">Match</span>
