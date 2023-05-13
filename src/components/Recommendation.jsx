@@ -61,9 +61,9 @@ function Recommendation() {
             placeholder="Search" value={searchQuery}
             onChange={(event) => setSearchQuery(event.target.value)}
             className="my-2 rounded-xl py-3 px-5 focus:outline-none font-light text-lg md:w-8/12 sm:w-11/12 hover:bg-light-gray ease duration-100"/>
-          <div className="md:w-8/12 sm:w-11/12 m-auto flex flex-wrap">
+          <div className="md:w-8/12 sm:w-11/12 m-auto flex flex-wrap justify-center">
             {searchResults.map((track) => (
-              <div key={track.id} className="w-2/12 h-20 bg-dark-gray rounded-lg text-white border border-red-100 w-1/2">
+              <div key={track.id} className="bg-dark-gray h-3/12 w-80 m-2 rounded-lg text-white border border-red-100">
                 {track.artists[0].name} - {track.name}
               </div>
             ))}

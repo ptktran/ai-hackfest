@@ -17,11 +17,11 @@ export default function Home() {
           <div className="my-5">
             
             <a href={loginUrl}>
-              <button type="button" class="my-3 block text-white bg-blue-700 hover:bg-blue-800 rounded-lg text-md px-7 py-2.5 m-auto ease duration-100">Pick your favourite songs</button>
+              <button type="button" className="my-3 block text-white bg-blue-700 hover:bg-blue-800 rounded-lg text-md px-7 py-2.5 m-auto ease duration-100">Pick your favourite songs</button>
             </a>
             
             <Link to="/survey">
-              <button class="my-3 block text-black bg-white hover:bg-slate-200 rounded-lg text-md px-7 py-2.5 m-auto ease duration-100">  
+              <button className="my-3 block text-black bg-white hover:bg-slate-200 rounded-lg text-md px-7 py-2.5 m-auto ease duration-100">  
                 Do a quick survey
               </button>
             </Link>
