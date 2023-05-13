@@ -2,8 +2,8 @@ import { useState } from 'react'
 import Home from './components/Home';
 import Survey from './components/Survey';
 import Recommendation from './components/Recommendation';
-import { getTokenFromUrl, CheckToken } from './backend/Spotify';
-import { Route, Routes, Router } from 'react-router-dom'
+import { Link } from "react-router-dom"
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import './App.css'
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
     <div>
       <Router>
         <Routes>
-          <Route path='/' element={<Home />} />
+          <Route path="/" element={ <Home/> }/>
           <Route path='/recommendation' element={<Recommendation />} />
           <Route path='/survey' element={<Survey />} />
         </Routes>
