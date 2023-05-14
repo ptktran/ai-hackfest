@@ -21,18 +21,4 @@ export const getTokenFromUrl = () => {
   localStorage.setItem('token', token);
 }
 
-<<<<<<< Updated upstream
-export function CheckToken() {
-  const hash = getTokenFromUrl();
-  window.location.hash = "";
-  const token = hash.access_token;
-
-  if (token) {
-      user_token = token
-  }
-  return (user_token);
-}
-
-=======
->>>>>>> Stashed changes
 export const loginUrl = `${authEndpoint}?client_id=${apiKey}&redirect_uri=${redirectUri}&scope=${scopes.join("%20")}&response_type=token&show_dialog=true`;
