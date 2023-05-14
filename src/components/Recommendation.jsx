@@ -9,6 +9,9 @@ function Recommendation() {
 
   const [accessToken, setAccessToken] = useState('')
   useEffect(() => {
+    if (sessionStorage.getItem('accessToken')) {
+      setAccessToken(sessionStorage.getItem('accessToken'))
+    }
     const getTokenFromUrl = () => {
       const token = window.location.hash
         .substring(1)
@@ -23,14 +26,14 @@ function Recommendation() {
     const token = getTokenFromUrl()
     if (token) {
       setAccessToken(token)
-      localStorage.setItem('accessToken', token)
+      sessionStorage.setItem('accessToken', token)
       window.history.replaceState({}, null, '/recommendation');
     }
   }, [])
 
   const navigate = useNavigate();
   useEffect(() => {
-    if (!localStorage.getItem('accessToken')) {
+    if (!sessionStorage.getItem('accessToken')) {
       navigate("/");
     }
   }, [])
@@ -53,7 +56,7 @@ function Recommendation() {
     )
 
     const data = await response.json()
-    if (data) {
+    if (data.tracks.items) {
       setSearchResults(data.tracks.items)
     } else {
       setSearchResults([])
@@ -63,6 +66,10 @@ function Recommendation() {
   useEffect(() => {
     debouncedSearch(searchQuery)
   }, [searchQuery])
+
+  const handleClearClick = () => {
+    setSearchQuery('')
+  }
 
   const [audioData, setAudioData] = useState([]);
   const MAX_SONGS_SELECTED = 3;
@@ -108,6 +115,10 @@ function Recommendation() {
             placeholder="Search" value={searchQuery}
             onChange={(event) => setSearchQuery(event.target.value)}
             className="my-2 rounded-xl py-3 px-4 focus:outline-none font-light text-md lg:w-7/12 md:9/12 sm:w-11/12 hover:bg-light-gray ease duration-100"/>
+            {searchQuery ? 
+              (<button onClick={handleClearClick} className="text-white bg-red-500 hover:bg-red-500/80 rounded-lg text-md px-3 py-2 ml-2 ease duration-100">Clear</button>
+              ) : <></>
+            }            
           <div className="md:w-7/12 sm:w-11/12 m-auto flex flex-wrap justify-center">
             {searchResults.length > 0 ? (
               searchResults.map((track) => (

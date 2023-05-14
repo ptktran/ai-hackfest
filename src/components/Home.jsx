@@ -4,6 +4,12 @@ import { Link } from 'react-router-dom'
 import { loginUrl } from '../backend/Spotify'
 
 export default function Home() {
+  function existingToken() {
+    if (sessionStorage.getItem('accessToken')) {
+      return true;
+    }
+    return false;
+  }
 
   return (
     <div className="h-screen">
@@ -15,9 +21,15 @@ export default function Home() {
             <h1 className="font-sans text-white sm:text-xl md:text-2xl font-light">Personalized music recommendations. Less time searching. More time listening.</h1>
           </div>
           <div className="my-5">
-            <a href={loginUrl}>
-              <button type="button" className="my-3 block text-white bg-green hover:bg-green/90 rounded-lg text-md px-7 py-2.5 m-auto ease duration-100">Pick your favourite songs</button>
-            </a>          
+            {existingToken() ? (
+              <Link to='/recommendation'>
+                <button type="button" className="my-3 text-white bg-green hover:bg-green/90 rounded-lg text-md px-7 py-2.5 m-auto ease duration-100">Pick your favourite songs</button>
+              </Link>) : (
+                <a href={loginUrl}>
+                  <button type="button" className="my-3 text-white bg-green hover:bg-green/90 rounded-lg text-md px-7 py-2.5 m-auto ease duration-100">Pick your favourite songs</button>
+                </a>          
+              )
+            }
           </div>
         </div>          
       </div>

@@ -9,7 +9,7 @@ function Navbar() {
           <span className="text-green">Melody</span><span className="text-white">Match</span>
         </h1>
       </Link>
-      <a href="https://github.com/ptktran/ai-hackfest" className='mx-5' target='blank'> 
+      <a data-tooltip-target="tooltip-animation" href="https://github.com/ptktran/ai-hackfest" className='mx-5' target='blank'> 
         <img src={github}></img>
       </a>
     </div>

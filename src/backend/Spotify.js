@@ -10,7 +10,7 @@ const scopes = [
 ];
 
 const sendData = (data) => {
-  fetch('/result', {
+  fetch('/process', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
