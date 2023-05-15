@@ -2,7 +2,7 @@ import Navbar from './Navbar'
 import { useState, useEffect } from 'react'
 import debounce from 'lodash.debounce'
 import { useNavigate } from "react-router-dom"
-// import { sendData } from '../backend/Spotify'
+import { sendData } from '../backend/Spotify'
 
 function Recommendation() {
   const [selected, setSelected] = useState(false)
@@ -116,7 +116,7 @@ function Recommendation() {
             onChange={(event) => setSearchQuery(event.target.value)}
             className="my-2 rounded-xl py-3 px-4 focus:outline-none font-light text-md lg:w-7/12 md:9/12 sm:w-11/12 hover:bg-light-gray ease duration-100"/>
             {searchQuery ? 
-              (<button onClick={handleClearClick} className="text-white bg-red-500 hover:bg-red-500/80 rounded-lg text-md px-3 py-2 ml-2 ease duration-100">Clear</button>
+              (<button onClick={handleClearClick} className="text-white bg-red-500 hover:bg-red500/80 rounded-lg text-md px-3 py-2 ml-2 ease duration-100">Clear</button>
               ) : <></>
             }            
           <div className="md:w-7/12 sm:w-11/12 m-auto flex flex-wrap justify-center">
@@ -152,7 +152,7 @@ function Recommendation() {
                       <p>{data.releaseDate}</p>
                     </div>
                   ))}
-                <button onClick={() => console.log(audioData)} className="mt-3 text-white bg-green hover:bg-green/90 rounded-lg text-md px-3 py-2 m-auto ease duration-100">Continue</button>
+                <button onClick={() => sendData(audioData)} className="mt-3 text-white bg-green hover:bg-green/90 rounded-lg text-md px-3 py-2 m-auto ease duration-100">Continue</button>
               </div> 
               ) : <></>}
           </div>

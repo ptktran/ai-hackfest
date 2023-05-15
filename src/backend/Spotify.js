@@ -9,8 +9,8 @@ const scopes = [
   "user-library-read"
 ];
 
-const sendData = (data) => {
-  fetch('/process', {
+export const sendData = (data) => {
+  fetch('http://127.0.0.1:5000/recommend', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
